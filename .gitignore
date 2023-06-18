@@ -361,4 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/OpenAi.Api.Sandbox/OpenAi.Api.Sandbox.csproj
+
+#Sandbox Project
+/OpenAi.Api.Sandbox/OpenAi.Api.Sandbox
