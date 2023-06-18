@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace OpenAi.Api.Abstractions.Models;
+namespace OpenAi.Api.Abstractions.Models.Completions;
 
 /// <summary>
 /// Represents a completion request for an AI model.
