@@ -21,7 +21,7 @@ public class Model
     public object? Parent { get; set; }
 
     [JsonProperty("permission", NullValueHandling = NullValueHandling.Ignore)]
-    public List<Permission> Permission { get; set; }
+    public List<Permission>? Permission { get; set; }
 
     [JsonProperty("root", NullValueHandling = NullValueHandling.Ignore)]
     public string? Root { get; set; }
