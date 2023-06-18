@@ -1,6 +1,10 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using Newtonsoft.Json;
-using OpenAi.Api.Abstractions.Models;
+using Newtonsoft.Json.Serialization;
+using OpenAi.Api.Abstractions.Models.Completions;
+using OpenAi.Api.Abstractions.Models.Edits;
+using Model = OpenAi.Api.Abstractions.Models.Model;
 
 namespace OpenAi.Api.Abstractions
 {
@@ -24,6 +28,11 @@ namespace OpenAi.Api.Abstractions
         public OpenAiApiProvider(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
         }
 
         #endregion Public Constructors
@@ -58,7 +67,7 @@ namespace OpenAi.Api.Abstractions
         /// Asynchronously retrieves information about a specific model by its name.
         /// </summary>
         /// <param name="modelName">The name of the model.</param>
-        /// <returns>A <see cref="Task{Model}"/> representing the asynchronous operation. The task result contains the retrieved model information as a <see cref="Model"/> object, or <c>null</c> if an error occurs.</returns>
+        /// <returns>A <see cref="Task{Model}"/> representing the asynchronous operation. The task result contains the retrieved model information as a <see cref="Models.Model"/> object, or <c>null</c> if an error occurs.</returns>
         public async Task<Model?> GetModelAsync(string modelName)
         {
             try
@@ -72,6 +81,23 @@ namespace OpenAi.Api.Abstractions
                 var model = JsonConvert.DeserializeObject<Model>(json);
 
                 return model;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<EditRequest?> PostEditAsync(EditRequest edit)
+        {
+            try
+            {
+                var request = new StringContent(JsonConvert.SerializeObject(edit), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("edits", request);
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return JsonConvert.DeserializeObject<EditRequest>(json);
             }
             catch
             {
