@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 #Sandbox Project
-/OpenAi.Api.Sandbox/OpenAi.Api.Sandbox/*.cs
+/OpenAi.Api.Sandbox/*.cs
