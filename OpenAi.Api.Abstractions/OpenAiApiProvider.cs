@@ -40,7 +40,7 @@ namespace OpenAi.Api.Abstractions
             try
             {
                 var request = new StringContent(JsonConvert.SerializeObject(completionRequest), Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync("https://api.openai.com/v1/engines/davinci-codex/completions", request);
+                var response = await _httpClient.PostAsync("completions", request);
 
                 response.EnsureSuccessStatusCode();
 
