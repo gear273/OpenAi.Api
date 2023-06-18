@@ -4,7 +4,36 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>Connor Bowlan</Authors>
+    <Title>OpenAI API Abstractions</Title>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>A robust abstraction of OpenAI's API.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/connorbowlan/OpenAi.Api/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>openai;ai;chat;gpt;api;abstraction</PackageTags>
+    <PackAsTool>True</PackAsTool>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <FileVersion>1.0.0.1</FileVersion>
+    <PackageIcon>icon-neon-128.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\img\icon-neon-128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
