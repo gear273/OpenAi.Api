@@ -7,7 +7,7 @@ namespace OpenAi.Api.Abstractions
     /// <summary>
     /// Represents a provider for interacting with the OpenAI API.
     /// </summary>
-    public class OpenAiProvider
+    public class OpenAiApiProvider
     {
         #region Private Fields
 
@@ -18,10 +18,10 @@ namespace OpenAi.Api.Abstractions
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenAiProvider"/> class with the specified <see cref="HttpClient"/> object used for making HTTP requests to the OpenAI API.
+        /// Initializes a new instance of the <see cref="OpenAiApiProvider"/> class with the specified <see cref="HttpClient"/> object used for making HTTP requests to the OpenAI API.
         /// </summary>
         /// <param name="httpClient">The <see cref="HttpClient"/> object to use for making HTTP requests.</param>
-        public OpenAiProvider(HttpClient httpClient)
+        public OpenAiApiProvider(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
